@@ -14,9 +14,16 @@ A statically typed, fluent template format for Virtual DOM with TypeScript.
 ## Example
 
 ```html
+import ArticleState from states/article;
+
+argument state: ArticleState | null;
+
 <template>
   <h1>Article List</h1>
-  @if (subject !== null) {
+  @if (state.subject !== null) {
+    // temporal constant for shorthand.
+    const articles = state.subject.articles;
+
     <table>
       <tr>
         <td>Title</td>
@@ -24,8 +31,8 @@ A statically typed, fluent template format for Virtual DOM with TypeScript.
         <td>Created</td>
       </tr>
       @when {
-        case (subject.articles.length > 0) =>
-          foreach (const article in subject.articles) {
+        case (articles.length > 0) =>
+          foreach (const article in subject) {
             <tr>
               <td>{ article.title }</td>
               <td>{ article.body }</td>
