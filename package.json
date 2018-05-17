@@ -2,8 +2,10 @@
   "name": "typescript-virtual-template",
   "version": "0.0.0",
   "description": "A statically typed, fluent template format for Virtual DOM with TypeScript.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
