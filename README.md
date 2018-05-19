@@ -14,9 +14,9 @@ A statically typed, fluent template format for Virtual DOM with TypeScript.
 ## Example
 
 ```html
-import ArticleState from states/article;
+@import ArticleState from "states/article";
 
-argument state: ArticleState | null;
+@argument state: ArticleState | null;
 
 <template>
   <h1>Article List</h1>
@@ -45,4 +45,18 @@ argument state: ArticleState | null;
     </table>
   }
 </template>
+```
+
+where
+
+```ts
+interface ArticleState {
+  subject: { articles: Article[] } | null;
+}
+
+interface Article {
+  title: string;
+  body: string;
+  created: string;
+}
 ```
