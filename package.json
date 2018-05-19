@@ -26,6 +26,8 @@
   },
   "homepage": "https://github.com/kunimitaiyoh/typescript-virtual-template#readme",
   "devDependencies": {
+    "dts-gen": "^0.5.7",
+    "pegjs": "^0.10.0",
     "typescript": "^2.8.3"
   },
   "dependencies": {
