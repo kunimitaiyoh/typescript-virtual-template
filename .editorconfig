@@ -20,3 +20,6 @@ indent_size = 2
 
 [*.html]
 indent_size = 2
+
+[*.pegjs]
+indent_size = 2
