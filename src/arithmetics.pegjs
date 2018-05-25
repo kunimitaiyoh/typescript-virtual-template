@@ -1,4 +1,7 @@
 // builds an arithmetic AST.
+Start
+  = _ e:Expression _ { return e; }
+
 Expression
   = head:Term tail:(_ ("+" / "-") _ Term)* {
       return tail.reduce((head, tail) => ({ BinaryOperation: { operator: tail[1], left: head, right: tail[3] } }), head);
