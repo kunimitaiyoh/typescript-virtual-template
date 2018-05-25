@@ -2,12 +2,12 @@
   "name": "typescript-virtual-template",
   "version": "0.0.0",
   "description": "A statically typed, fluent template format for Virtual DOM with TypeScript.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/main/index.js",
+  "types": "dist/main/index.d.ts",
   "scripts": {
-    "build": "pegjs && tsc",
-    "pegjs": "pegjs --output dist/arithmetics.js src/arithmetics.pegjs",
-    "test": "jest"
+    "build": "tsc && npm run pegjs",
+    "pegjs": "pegjs --output dist/main/arithmetics.js src/parser/arithmetics.pegjs",
+    "test": "npm run build && istanbul cover node_modules/mocha/bin/_mocha -- -R spec dist/test"
   },
   "repository": {
     "type": "git",
@@ -27,12 +27,15 @@
   },
   "homepage": "https://github.com/kunimitaiyoh/typescript-virtual-template#readme",
   "devDependencies": {
-    "@types/jest": "^22.2.3",
+    "@types/mocha": "^5.2.0",
     "@types/node": "^10.1.2",
+    "@types/power-assert": "^1.5.0",
     "dts-gen": "^0.5.7",
-    "jest": "^22.4.4",
+    "istanbul": "^0.4.5",
+    "mocha": "^5.2.0",
     "pegjs": "^0.10.0",
-    "ts-jest": "^22.4.6",
+    "power-assert": "^1.5.0",
+    "remap-istanbul": "^0.11.1",
     "typescript": "^2.8.3"
   },
   "dependencies": {

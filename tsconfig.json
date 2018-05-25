@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "module": "es2015",
-    "outDir": "dist",
+    "module": "commonjs",
+    "outDir": "./dist/",
     "removeComments": true,
     "sourceMap": true,
     "strict": true,
@@ -13,7 +13,7 @@
     ],
     "paths": {
         "*": ["types/*", "node_modules/@types/*", "*"],
-        "@/*": ["src/*"]
+        "@/*": ["src/main/*"]
     },
   },
   "exclude": [
