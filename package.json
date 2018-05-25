@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "pegjs && tsc",
+    "pegjs": "pegjs --output dist/arithmetics.js src/arithmetics.pegjs",
     "test": "jest"
   },
   "repository": {
@@ -27,6 +28,7 @@
   "homepage": "https://github.com/kunimitaiyoh/typescript-virtual-template#readme",
   "devDependencies": {
     "@types/jest": "^22.2.3",
+    "@types/node": "^10.1.2",
     "dts-gen": "^0.5.7",
     "jest": "^22.4.4",
     "pegjs": "^0.10.0",
