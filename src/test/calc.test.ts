@@ -6,9 +6,36 @@ import * as path from "path";
 import * as arithmetics from "../main/arithmetics";
 
 describe("arithmetics", () => {
-  it("should return addition of two operands.", () => {
-    const source = fs.readFileSync(path.resolve(__dirname, "fixture/calculation.calc"), "utf-8");
+  it("should return a valid abstract syntax tree.", () => {
+    const source = fs.readFileSync(path.resolve(__dirname, "fixtures/calculation.calc"), "utf-8");
     const actual = arithmetics.parse(source);
-    assert.equal(actual, 3);
+    const expected = {
+      BinaryOperation: {
+        operator: "+",
+        left: {
+          BinaryOperation: {
+            operator: "*",
+            left: {
+              Integer: "1"
+            },
+            right: {
+              Integer: "2"
+            }
+          }
+        },
+        right: {
+          BinaryOperation: {
+            operator: "*",
+            left: {
+              Integer: "3"
+            },
+            right: {
+              Integer: "4"
+            }
+          }
+        }
+      }
+    };
+    assert.deepEqual(actual, expected);
   });
 });
