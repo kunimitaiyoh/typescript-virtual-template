@@ -1,9 +1,24 @@
-export type Expression = BinaryOperation | Integer
+import { LocationRange } from "pegjs";
 
-export interface BinaryOperation {
-  operator: string;
-  left: Expression;
-  right: Expression;
+export interface Symbol {
+  kind: string;
+  location: LocationRange;
 }
 
-export type Integer = number
+export type Expression = BinaryOperation | Integer;
+
+export interface BinaryOperation extends Symbol {
+  kind: "BinaryOperation";
+  args: {
+    operator: string;
+    left: Expression;
+    right: Expression;
+  }
+}
+
+export interface Integer extends Symbol {
+  kind: "Integer";
+  args: {
+    value: number;
+  }
+}
