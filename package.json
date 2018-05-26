@@ -5,8 +5,10 @@
   "main": "dist/main/index.js",
   "types": "dist/main/index.d.ts",
   "scripts": {
-    "build": "tsc && npm run pegjs",
+    "build": "npm run tsc && npm run pegjs && npm run fixtures",
+    "fixtures": "copyfiles --up 1 src/test/fixtures/**/*.* dist/",
     "pegjs": "pegjs --output dist/main/arithmetics.js src/parser/arithmetics.pegjs",
+    "tsc": "tsc",
     "test": "npm run build && istanbul cover node_modules/mocha/bin/_mocha -- -R spec dist/test"
   },
   "repository": {
@@ -30,6 +32,7 @@
     "@types/mocha": "^5.2.0",
     "@types/node": "^10.1.2",
     "@types/power-assert": "^1.5.0",
+    "copyfiles": "^2.0.0",
     "dts-gen": "^0.5.7",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
