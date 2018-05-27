@@ -1,4 +1,8 @@
 // builds an arithmetic AST.
+{
+  const factories = require("../main/symbolFactories");
+}
+
 Start
   = _ e:Expression _ { return e; }
 
