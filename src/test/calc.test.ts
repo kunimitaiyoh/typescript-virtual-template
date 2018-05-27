@@ -4,38 +4,55 @@ import * as fs from "fs";
 import * as path from "path";
 // @ts-ignore
 import * as arithmetics from "../main/arithmetics";
+import { assertSymbolEqual } from './util';
 
 describe("arithmetics", () => {
   it("should return a valid abstract syntax tree.", () => {
     const source = fs.readFileSync(path.resolve(__dirname, "fixtures/calculation.calc"), "utf-8");
+
     const actual = arithmetics.parse(source);
     const expected = {
-      BinaryOperation: {
+      kind: "BinaryOperation",
+      args: {
         operator: "+",
         left: {
-          BinaryOperation: {
+          kind: "BinaryOperation",
+          args: {
             operator: "*",
             left: {
-              Integer: "1"
+              kind: "Integer",
+              args: {
+                value: "1"
+              }
             },
             right: {
-              Integer: "2"
-            }
+              kind: "Integer",
+              args: {
+                value: "2"
+              }
+            },
           }
         },
         right: {
-          BinaryOperation: {
+          kind: "BinaryOperation",
+          args: {
             operator: "*",
             left: {
-              Integer: "3"
+              kind: "Integer",
+              args: {
+                value: "3"
+              }
             },
             right: {
-              Integer: "4"
+              kind: "Integer",
+              args: {
+                value: "4"
+              }
             }
           }
         }
       }
     };
-    assert.deepEqual(actual, expected);
+    assertSymbolEqual(actual, expected);
   });
 });
