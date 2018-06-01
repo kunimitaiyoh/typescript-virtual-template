@@ -1,6 +1,6 @@
 # TypeScript Virtual Template
 
-A statically typed, fluent template format for Virtual DOM with TypeScript.
+*TypeScript Virtual Template* (*TSVT*) is a statically typed, fluent template format for Virtual DOM with TypeScript.
 
 ## Features
 
@@ -60,3 +60,10 @@ interface Article {
   created: string;
 }
 ```
+
+## Ecosystem
+
+- transpiler: parse and converts TSVT code into corresponding TypeScript *abstract syntax tree* (AST).
+- compiler: compiles TSVT code into TypeScript using the transpiler with other TypeScript code.
+- Language server: compiles TSVT and reports the diagnostics using the compiler.
+- webpack plugin: compiles TSVT into TypeScript on webpack.
