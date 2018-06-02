@@ -16,3 +16,4 @@ const removeLocation = function(symbol: any): any {
 export function assertSymbolEqual(actual: Symbol, expected: any, message?: string): void {
   assert.deepEqual(removeLocation(actual), expected, message);
 }
+
