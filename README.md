@@ -67,3 +67,20 @@ interface Article {
 - compiler: compiles TSVT code into TypeScript using the transpiler with other TypeScript code.
 - Language server: compiles TSVT and reports the diagnostics using the compiler.
 - webpack plugin: compiles TSVT into TypeScript on webpack.
+
+![ecosystem](https://www.plantuml.com/plantuml/png/ROyn3i8m34Ltdy8dw04OK2LMDYIMm61IAuf8tM0dxVM9Wjg99T9_Nq_v7gsGbZedS7wPSqoiJt15IMmFLv9GAJ0Qwze8ac4oS1k_ClatvbH3b8wt3Ev-myioSS-hUO3su32ScuCdLFvKjeA_pw84V8YovxWoJf62M8dU85bNzabDhCQmvN_qYBtSfn_ro3Ar-xu0)
+
+<!-- Plant UML
+@startuml
+[compiler]
+[transpiler]
+[Language server] as ls
+[webpack plugin] as wp
+[VS Code] as vsc
+
+vsc ..> ls : request compiling \nreceive diagnstics
+ls ..> compiler : use
+wp ..> compiler : use
+compiler  ..> transpiler : use
+@enduml
+-->
